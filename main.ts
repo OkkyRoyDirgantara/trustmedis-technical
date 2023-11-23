@@ -1,3 +1,4 @@
+import TaskOne from "./src/taskone/task-one";
 import taskOne from "./src/taskone/task-one"
 
 const data = {
@@ -6,5 +7,7 @@ const data = {
     seq: 1,
 };
 
-console.log(taskOne(data));
-console.log(Date())
+const task1 = new TaskOne
+
+console.log(task1.firstTemplate(data));
+console.log(task1.secondTemplate(data));
