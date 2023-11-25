@@ -19,6 +19,12 @@ yarn build
 yarn start
 ```
 
+## Runing developmen mode
+
+```
+yarn dev
+```
+
 ## Running Test Unit
 
 run this command
