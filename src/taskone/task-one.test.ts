@@ -36,4 +36,31 @@ describe('task-one module', () => {
     let objTest = new TaskOne("{REG_TYPE}/{YY}{MM}{DD}/{SEQ}");
     expect(objTest.generateTemplate(data)).toBe(`${data.regType}/${YY}${MM}${DD}/${SEQ}`)
   })
+
+  it('should generate the correct template output', () => {
+    const data = {
+      regType: 'RI',
+      currentDate: new Date('2021-09-01'),
+      seq: 1,
+    };
+
+    const template1 = new TaskOne('{SEQ}-{YYYY}/{MM}/{DD}-{REG_TYPE}');
+    const result1 = template1.generateTemplate(data);
+    expect(result1).toBe('0001-2021/09/01-RI');
+
+    const template2 = new TaskOne('{REG_TYPE}/{YY}{MM}{DD}/{SEQ}');
+    const result2 = template2.generateTemplate(data);
+    expect(result2).toBe('RI/210901/0001');
+  });
+
+  it('should throw an error if template is not set', () => {
+    const data = {
+      regType: 'RI',
+      currentDate: new Date('2021-09-01'),
+      seq: 1,
+    };
+
+    const template = new TaskOne('');
+    expect(() => template.generateTemplate(data)).toThrowError('Template is not set');
+  });
 });
