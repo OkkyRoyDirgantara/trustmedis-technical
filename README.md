@@ -19,7 +19,7 @@ yarn build
 yarn start
 ```
 
-## Runing developmen mode
+## Runing development mode
 
 ```
 yarn dev

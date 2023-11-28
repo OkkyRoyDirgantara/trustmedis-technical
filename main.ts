@@ -3,14 +3,16 @@ import TaskTwo from "./src/tasktwo/task-two";
 
 const data = {
     regType: "RI",
+    // currentDate: new Date("2023-01-31"),
     currentDate: new Date(),
     seq: 1,
 };
 
-const taskOne = new TaskOne
+const firstTemplate = new TaskOne("{SEQ}-{YYYY}/{MM}/{DD}-{REG_TYPE}");
+const secondTemplate = new TaskOne("{REG_TYPE}/{YY}{MM}{DD}/{SEQ}");
 
-console.log(taskOne.firstTemplate(data));
-console.log(taskOne.secondTemplate(data));
+console.log(firstTemplate.generateTemplate(data));
+console.log(secondTemplate.generateTemplate(data));
 
 const team1 = 2;
 const array1 = [7, 8, 10, 9, 9];
